@@ -1,0 +1,9 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+  {% for message in room_messages %}
+    <p>replied to post “<a href="{% url 'room' message.room.id %}">{{message.room}}</a>”</p>
+            <div >{{message.body}}</div>
+      {% endfor %}
+{% endblock %}

@@ -1,0 +1,35 @@
+
+
+       {% if request.user.is_authenticated %}
+
+<div>
+    <form method="POST"  action="{% url 'create-message' %}">
+
+    
+        {% csrf_token %}
+    
+          <div class="form__group1">
+          
+           
+               <div class="thread__author">
+                  <a href="{% url 'update-user'  %}" class="thread__authorInfo">
+                    <div class="avatar avatar--small">
+                      <img src="static{{request.user.avatar.url}}" />
+                    </div>
+                  </a>
+                
+                </div> {{form.name}}
+          </div>
+
+          <div class="form__group1">
+            {{form.body}}
+          </div>
+          <div class="btnm">
+        <input type="submit" value="Submit" class="btnn"/>
+        </div>
+    </form>
+</div>
+
+        {% endif %}
+
+

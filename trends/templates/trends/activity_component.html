@@ -1,0 +1,36 @@
+
+<div class="activities">
+   
+
+    <div class="activities__header">
+        <h2>Recent Activities</h2>
+    </div>
+
+    {% for message in messages %}
+        {% for comment in comments%}
+             {% if comment.message.id == message.id %}
+                {% if request.user == comment.user %}
+                    <div class="activities__boxContent">            
+                        <div class="activities__boxRoomContent">
+                             <p>
+                                <span style="font-size:14px;">replied " {{comment.comment|slice:':17'}} . . ."</span> <span>{{comment.created|timesince}} ago</span>
+                            </p>
+                            <div>{{message.body|slice:":92"}} . . .</div>
+                        </div>
+                    </div>
+
+
+        
+                {% endif %}
+
+            {% endif %}
+
+
+        {% endfor %}
+    {% endfor %}
+
+</div>
+
+
+    
+

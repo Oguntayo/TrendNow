@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+
+{{messages.recipient.username}}
+<br>
+<h1>
+{{messages.name}}</h1>
+{{messages.body}}
+<h1>comments</h1>
+<br />
+<br />
+
+{% for comment in comments %}
+
+ {% if request.user == comment.user %}
+<a href="{% url 'delete-comment' comment.id %}">delete</a>
+            {% endif %}
+
+{{comment}}
+
+
+<br />
+<hr />
+{% endfor %} 
+<br />
+<br />
+<hr />
+
+
+        {% if request.user.is_authenticated %}
+        <div >
+            <form method="POST" action="">
+                {% csrf_token %}{{comment}}
+                <input type="text" name="comment" placeholder="Write you message here..." />
+            </form>
+        </div>
+        {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+
+ {% block content %} 
+
+
+
+
+
+
+    <div>
+        {% include 'trends/topics_component.html' %}
+    </div>
+
+    <div>
+    <div class="trends" style=" padding: 20px 0 0px 10px;margin: 0;font-size: 15px;">
+    <h1 >Home</h1></div>
+        {% include 'trends/feed_component.html' %}
+    </div>
+
+    <div>
+        {% include 'trends/activity_component.html' %}
+    </div>
+
+
+
+
+
+
+{% endblock %}
+
+
